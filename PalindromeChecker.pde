@@ -16,14 +16,27 @@ public void setup()
 }
 public boolean palindrome(String word)
 {
-  //your code here
+  String origWord = onlyLowerCharacters(word);
+  if (origWord.equals(reverse(origWord))) {
+    return true;
+  }
   return false;
 }
 public String reverse(String str)
 {
     String sNew = new String();
-    //your code here
+    for (int i = str.length()-1; i >= 0; i--) {
+      sNew += str.substring(i, i+1);
+    }
     return sNew;
 }
 
-
+public String onlyLowerCharacters(String sWord){
+  String answer = new String();
+  for (int i = 0; i < sWord.length(); i++) {
+    if (Character.isLetter(sWord.charAt(i))) {
+      answer += sWord.substring(i, i+1);
+    }
+  }
+  return answer.toLowerCase();
+}
